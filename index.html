@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HypnoMind - 解锁潜意识力量，实现自我提升</title>
+    <meta name="description" content="通过科学催眠技巧提升自信、减轻压力、改善睡眠。每天15分钟，开启您的个人成长之旅。">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+        }
+        
+        .cta-button {
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.6);
+        }
+        
+        .feature-card {
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .testimonial-card {
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .guarantee-badge {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .phone-mockup {
+            border-radius: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            transform: perspective(1000px) rotateY(-15deg);
+        }
+        
+        .how-it-works-step {
+            position: relative;
+            padding-left: 60px;
+        }
+        
+        .how-it-works-step:before {
+            content: attr(data-step);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 40px;
+            height: 40px;
+            background-color: #6366f1;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        
+        .faq-item {
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .faq-question {
+            transition: all 0.3s ease;
+        }
+        
+        .faq-question:hover {
+            color: #6366f1;
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 顶部通知栏 -->
+    <div class="bg-indigo-600 text-white text-center py-2 px-4">
+        <div class="container mx-auto">
+            <p class="text-sm"><i class="fas fa-gift mr-2"></i> 限时优惠：前1000名注册用户可享终身8折优惠 <a href="#pricing" class="font-semibold underline ml-2">立即抢购</a></p>
+        </div>
+    </div>
+
+    <!-- 导航栏 -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="w-10 h-10 bg-indigo-100 rounded-lg flex items-center justify-center mr-3">
+                    <i class="fas fa-brain text-indigo-600"></i>
+                </div>
+                <span class="text-xl font-bold text-gray-800">Hypno<span class="text-indigo-600">Mind</span></span>
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#features" class="text-gray-600 hover:text-indigo-600 font-medium">功能</a>
+                <a href="#how-it-works" class="text-gray-600 hover:text-indigo-600 font-medium">工作原理</a>
+                <a href="#testimonials" class="text-gray-600 hover:text-indigo-600 font-medium">用户评价</a>
+                <a href="#pricing" class="text-gray-600 hover:text-indigo-600 font-medium">价格</a>
+            </div>
+            <div class="flex items-center space-x-4">
+                <button class="hidden md:block text-gray-600 hover:text-indigo-600">
+                    <i class="fas fa-search"></i>
+                </button>
+                <a href="#cta" class="cta-button bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 px-6 rounded-lg">免费试用</a>
+                <button class="md:hidden text-gray-600">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient text-white py-16 md:py-24">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-12 md:mb-0">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4">告别自我怀疑，<br>迎接自信人生</h1>
+                    <p class="text-xl md:text-2xl mb-8">HypnoMind通过科学催眠技巧，帮助您解锁潜意识力量，30天内实现显著自我提升</p>
+                    
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 mb-8">
+                        <a href="#cta" class="cta-button bg-white hover:bg-gray-100 text-indigo-600 font-bold py-4 px-8 rounded-lg text-lg flex items-center justify-center">
+                            <i class="fas fa-rocket mr-2"></i> 立即免费试用
+                        </a>
+                        <a href="#video" class="bg-transparent hover:bg-indigo-700 text-white font-bold py-4 px-8 rounded-lg text-lg flex items-center justify-center border-2 border-white">
+                            <i class="fas fa-play-circle mr-2"></i> 观看视频
+                        </a>
+                    </div>
+                    
+                    <div class="flex items-center">
+                        <div class="flex -space-x-2 mr-4">
+                            <img src="https://randomuser.me/api/portraits/women/32.jpg" class="w-10 h-10 rounded-full border-2 border-white" alt="Happy user">
+                            <img src="https://randomuser.me/api/portraits/men/22.jpg" class="w-10 h-10 rounded-full border-2 border-white" alt="Happy user">
+                            <img src="https://randomuser.me/api/portraits/women/45.jpg" class="w-10 h-10 rounded-full border-2 border-white" alt="Happy user">
+                        </div>
+                        <div class="text-sm">
+                            <div class="flex items-center">
+                                <i class="fas fa-star text-yellow-400 mr-1"></i>
+                                <i class="fas fa-star text-yellow-400 mr-1"></i>
+                                <i class="fas fa-star text-yellow-400 mr-1"></i>
+                                <i class="fas fa-star text-yellow-400 mr-1"></i>
+                                <i class="fas fa-star text-yellow-400 mr-1"></i>
+                                <span class="font-bold ml-1">4.9/5</span>
+                            </div>
+                            <p>基于1,284条真实评价</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2 flex justify-center">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1585435557343-3b0783438bd6?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Person meditating" class="rounded-xl shadow-2xl border-8 border-white transform rotate-2 w-full max-w-md">
+                        <div class="absolute -bottom-6 -right-6 bg-white p-4 rounded-lg shadow-lg">
+                            <div class="text-center">
+                                <div class="text-indigo-600 font-bold text-xl">今日特惠</div>
+                                <div class="text-3xl font-bold text-gray-800">¥199<span class="text-lg">/年</span></div>
+                                <div class="text-sm line-through text-gray-500">¥399</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 信任标志 -->
+    <section class="py-8 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16">
+                <img src="https://via.placeholder.com/120x40?text=TechCrunch" alt="TechCrunch" class="h-8 opacity-70">
+                <img src="https://via.placeholder.com/120x40?text=Forbes" alt="Forbes" class="h-8 opacity-70">
+                <img src="https://via.placeholder.com/120x40?text=Psychology+Today" alt="Psychology Today" class="h-8 opacity-70">
+                <img src="https://via.placeholder.com/120x40?text=Mindful" alt="Mindful" class="h-8 opacity-70">
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem/Solution Section -->
+    <section id="problem" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">还在为这些困扰烦恼？</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">现代生活中的压力、焦虑和自我怀疑正在阻碍您实现真正的潜力</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 mb-12">
+                <div class="bg-white p-8 rounded-lg border border-gray-200 text-center">
+                    <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-tired text-red-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">缺乏自信</h3>
+                    <p class="text-gray-600">总是怀疑自己的能力，不敢追求真正想要的生活</p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-lg border border-gray-200 text-center">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-stress text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">压力过大</h3>
+                    <p class="text-gray-600">工作生活压力让你难以放松，影响身心健康</p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-lg border border-gray-200 text-center">
+                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-bed text-purple-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">睡眠问题</h3>
+                    <p class="text-gray-600">难以入睡或睡眠质量差，影响白天的精力和效率</p>
+                </div>
+            </div>
+            
+            <div class="bg-indigo-50 rounded-xl p-8 md:p-12">
+                <div class="flex flex-col md:flex-row items-center">
+                    <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+                        <h2 class="text-3xl font-bold mb-4 text-indigo-800">HypnoMind解决方案</h2>
+                        <p class="text-lg mb-6">我们的科学催眠方法直接作用于潜意识，帮助您快速建立积极的心理模式，从根本上解决这些问题。</p>
+                        <ul class="space-y-3 mb-6">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-indigo-600 mt-1 mr-2"></i>
+                                <span>每天只需15-20分钟，随时随地练习</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-indigo-600 mt-1 mr-2"></i>
+                                <span>基于认知行为催眠疗法(CBH)的科学方法</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-indigo-600 mt-1 mr-2"></i>
+                                <span>个性化催眠脚本，针对您的特定需求</span>
+                            </li>
+                        </ul>
+                        <a href="#features" class="inline-block bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-3 px-6 rounded-lg">了解更多功能</a>
+                    </div>
+                    <div class="md:w-1/2">
+                        <div class="bg-white rounded-lg overflow-hidden shadow-lg">
+                            <div class="aspect-w-16 aspect-h-9">
+                                <iframe src="https://www.youtube.com/embed/example" frameborder="0" allowfullscreen class="w-full h-64 md:h-80"></iframe>
+                            </div>
+                            <div class="p-4">
+                                <h3 class="font-bold mb-2">HypnoMind如何改变您的生活</h3>
+                                <p class="text-sm text-gray-600">观看3分钟介绍视频，了解HypnoMind的工作原理</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Features Section -->
+    <section id="features" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">为什么选择HypnoMind？</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">专为现代人设计的自我提升催眠解决方案</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                <div class="feature-card bg-white p-8 rounded-lg">
+                    <div class="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-brain text-indigo-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">科学验证的方法</h3>
+                    <p class="text-gray-600">基于认知行为催眠疗法(CBH)和正念冥想，所有技巧都有科学研究支持</p>
+                </div>
+                
+                <div class="feature-card bg-white p-8 rounded-lg">
+                    <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-user-cog text-purple-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">个性化体验</h3>
+                    <p class="text-gray-600">根据您的目标和进度，智能调整催眠脚本和练习计划</p>
+                </div>
+                
+                <div class="feature-card bg-white p-8 rounded-lg">
+                    <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-chart-line text-blue-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">进度追踪</h3>
+                    <p class="text-gray-600">详细记录您的练习数据和效果，让进步一目了然</p>
+                </div>
+                
+                <div class="feature-card bg-white p-8 rounded-lg">
+                    <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-headphones text-green-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">专业引导音频</h3>
+                    <p class="text-gray-600">由专业催眠治疗师录制的引导音频，帮助您轻松进入催眠状态</p>
+                </div>
+                
+                <div class="feature-card bg-white p-8 rounded-lg">
+                    <div class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-mobile-alt text-yellow-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">随时随地使用</h3>
+                    <p class="text-gray-600">手机APP形式，让您可以在任何时间、任何地点进行练习</p>
+                </div>
+                
+                <div class="feature-card bg-white p-8 rounded-lg">
+                    <div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-graduation-cap text-red-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">教育资源库</h3>
+                    <p class="text-gray-600">丰富的催眠和心理学教育资源，帮助您深入理解自我提升的科学</p>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <a href="#cta" class="cta-button bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 px-8 rounded-lg text-lg inline-block">
+                    立即开始改变
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">简单三步，开启改变</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">HypnoMind的使用流程设计简单直观，让您轻松上手</p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="grid md:grid-cols-3 gap-8 mb-12">
+                    <div class="how-it-works-step" data-step="1">
+                        <h3 class="text-xl font-bold mb-3">选择目标</h3>
+                        <p class="text-gray-600">从自信提升、压力缓解、睡眠改善等常见目标中选择，或创建自定义目标</p>
+                    </div>
+                    <div class="how-it-works-step" data-step="2">
+                        <h3 class="text-xl font-bold mb-3">开始练习</h3>
+                        <p class="text-gray-600">跟随专业引导音频进行催眠练习，每天只需15-20分钟</p>
+                    </div>
+                    <div class="how-it-works-step" data-step="3">
+                        <h3 class="text-xl font-bold mb-3">追踪进步</h3>
+                        <p class="text-gray-600">记录您的感受和变化，观察自己的成长轨迹</p>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-50 rounded-xl p-8">
+                    <div class="flex flex-col md:flex-row items-center">
+                        <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+                            <h3 class="text-2xl font-bold mb-4">科学背后的原理</h3>
+                            <p class="text-gray-600 mb-4">催眠状态是一种高度专注的意识状态，在这种状态下，您的潜意识更加开放，更容易接受积极的建议和改变。</p>
+                            <p class="text-gray-600">通过定期练习，这些积极的建议会逐渐融入您的潜意识，改变您的基本思维模式和行为习惯，从而实现持久的自我提升。</p>
+                        </div>
+                        <div class="md:w-1/2">
+                            <img src="https://images.unsplash.com/photo-1593810450967-f9c42742e326?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Brain activity" class="rounded-lg shadow-md w-full">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- App Screenshots Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">应用界面预览</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">直观友好的设计，让您的催眠练习体验更加愉悦</p>
+            </div>
+            
+            <div class="flex overflow-x-auto pb-8 space-x-6">
+                <div class="flex-shrink-0">
+                    <iframe src="home.html" class="phone-mockup w-64 h-[550px] border-8 border-gray-800 bg-gray-800"></iframe>
+                    <p class="text-center mt-2 font-medium">首页</p>
+                </div>
+                <div class="flex-shrink-0">
+                    <iframe src="explore.html" class="phone-mockup w-64 h-[550px] border-8 border-gray-800 bg-gray-800"></iframe>
+                    <p class="text-center mt-2 font-medium">探索</p>
+                </div>
+                <div class="flex-shrink-0">
+                    <iframe src="practice.html" class="phone-mockup w-64 h-[550px] border-8 border-gray-800 bg-gray-800"></iframe>
+                    <p class="text-center mt-2 font-medium">练习</p>
+                </div>
+                <div class="flex-shrink-0">
+                    <iframe src="progress.html" class="phone-mockup w-64 h-[550px] border-8 border-gray-800 bg-gray-800"></iframe>
+                    <p class="text-center mt-2 font-medium">进度</p>
+                </div>
+            </div>
+            
+            <div class="text-center mt-8">
+                <a href="#" class="inline-flex items-center text-indigo-600 font-medium">
+                    <span>体验完整App演示</span>
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">用户真实评价</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">听听已经改变生活的用户怎么说</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 mb-12">
+                <div class="testimonial-card bg-white p-8 rounded-lg border border-gray-200">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="张小姐" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">张小姐</h4>
+                            <div class="flex">
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">"使用HypnoMind一个月后，我的社交焦虑明显减轻了。现在我能更自信地表达自己，甚至在会议上发言也不那么紧张了。"</p>
+                    <div class="text-sm text-gray-500 flex items-center">
+                        <i class="fas fa-check-circle text-green-500 mr-2"></i> 已验证用户
+                    </div>
+                </div>
+                
+                <div class="testimonial-card bg-white p-8 rounded-lg border border-gray-200">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="李先生" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">李先生</h4>
+                            <div class="flex">
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">"作为一名高压职场人士，HypnoMind的压力管理练习彻底改变了我的生活。现在我能更好地控制情绪，工作效率也提高了。"</p>
+                    <div class="text-sm text-gray-500 flex items-center">
+                        <i class="fas fa-check-circle text-green-500 mr-2"></i> 已验证用户
+                    </div>
+                </div>
+                
+                <div class="testimonial-card bg-white p-8 rounded-lg border border-gray-200">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="王女士" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">王女士</h4>
+                            <div class="flex">
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">"多年的失眠问题在使用HypnoMind两周后得到了显著改善。现在我能更快入睡，睡眠质量也提高了，白天的精力充沛多了。"</p>
+                    <div class="text-sm text-gray-500 flex items-center">
+                        <i class="fas fa-check-circle text-green-500 mr-2"></i> 已验证用户
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-indigo-50 rounded-xl p-8">
+                <div class="flex flex-col md:flex-row items-center">
+                    <div class="md:w-1/3 mb-8 md:mb-0 flex justify-center">
+                        <div class="text-center">
+                            <div class="text-5xl font-bold text-indigo-600 mb-2">92%</div>
+                            <div class="text-lg font-medium">用户报告显著改善</div>
+                        </div>
+                    </div>
+                    <div class="md:w-2/3 md:pl-8">
+                        <h3 class="text-2xl font-bold mb-4">基于真实用户数据</h3>
+                        <p class="text-gray-600 mb-4">在对1,000名连续使用HypnoMind 30天以上的用户调查中：</p>
+                        <ul class="grid md:grid-cols-2 gap-4">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-indigo-600 mt-1 mr-2"></i>
+                                <span>92%报告压力水平显著降低</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-indigo-600 mt-1 mr-2"></i>
+                                <span>87%自信心明显提升</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-indigo-600 mt-1 mr-2"></i>
+                                <span>85%睡眠质量改善</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-indigo-600 mt-1 mr-2"></i>
+                                <span>94%会推荐给朋友和家人</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">选择适合您的计划</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">简单透明的定价，无隐藏费用</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <div class="border-2 border-gray-200 rounded-lg p-6">
+                    <h3 class="text-2xl font-bold text-center mb-4">基础版</h3>
+                    <div class="text-center mb-6">
+                        <span class="text-4xl font-bold">¥99</span>
+                        <span class="text-gray-500">/月</span>
+                    </div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>基础催眠练习库</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>每日练习提醒</span>
+                        </li>
+                        <li class="flex items-center text-gray-400">
+                            <i class="fas fa-times text-gray-300 mr-2"></i>
+                            <span>个性化催眠脚本</span>
+                        </li>
+                        <li class="flex items-center text-gray-400">
+                            <i class="fas fa-times text-gray-300 mr-2"></i>
+                            <span>高级进度分析</span>
+                        </li>
+                        <li class="flex items-center text-gray-400">
+                            <i class="fas fa-times text-gray-300 mr-2"></i>
+                            <span>专属催眠治疗师咨询</span>
+                        </li>
+                    </ul>
+                    <a href="#cta" class="block text-center bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-3 px-6 rounded-lg">
+                        选择基础版
+                    </a>
+                </div>
+                
+                <div class="border-2 border-indigo-500 rounded-lg p-6 relative">
+                    <div class="absolute top-0 right-0 bg-indigo-500 text-white text-xs font-bold px-3 py-1 transform translate-x-2 -translate-y-2 rounded">
+                        最受欢迎
+                    </div>
+                    <h3 class="text-2xl font-bold text-center mb-4">专业版</h3>
+                    <div class="text-center mb-6">
+                        <span class="text-4xl font-bold">¥199</span>
+                        <span class="text-gray-500">/月</span>
+                        <div class="text-sm text-indigo-600 mt-1">年付仅¥1,990 (节省¥398)</div>
+                    </div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>完整催眠练习库</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>个性化催眠脚本</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>高级进度分析</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>每周新增内容</span>
+                        </li>
+                        <li class="flex items-center text-gray-400">
+                            <i class="fas fa-times text-gray-300 mr-2"></i>
+                            <span>专属催眠治疗师咨询</span>
+                        </li>
+                    </ul>
+                    <a href="#cta" class="block text-center cta-button bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg">
+                        选择专业版
+                    </a>
+                </div>
+                
+                <div class="border-2 border-purple-500 rounded-lg p-6">
+                    <h3 class="text-2xl font-bold text-center mb-4">尊享版</h3>
+                    <div class="text-center mb-6">
+                        <span class="text-4xl font-bold">¥399</span>
+                        <span class="text-gray-500">/月</span>
+                        <div class="text-sm text-purple-600 mt-1">年付仅¥3,990 (节省¥798)</div>
+                    </div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>完整催眠练习库</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>高级个性化脚本</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>详尽进度分析</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>每日新增内容</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>每月1次专属催眠治疗师咨询</span>
+                        </li>
+                    </ul>
+                    <a href="#cta" class="block text-center bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-6 rounded-lg">
+                        选择尊享版
+                    </a>
+                </div>
+            </div>
+            
+            <div class="max-w-3xl mx-auto mt-12 bg-white p-6 rounded-lg border border-gray-200">
+                <div class="flex items-start">
+                    <div class="bg-indigo-100 p-3 rounded-full mr-4">
+                        <i class="fas fa-lock text-indigo-600"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-lg mb-2">安全支付</h3>
+                        <p class="text-gray-600">所有支付信息均通过256位SSL加密处理，保障您的资金安全。</p>
+                        <div class="flex mt-4">
+                            <img src="https://via.placeholder.com/60x40?text=Visa" alt="Visa" class="h-8 mr-3">
+                            <img src="https://via.placeholder.com/60x40?text=MC" alt="Mastercard" class="h-8 mr-3">
+                            <img src="https://via.placeholder.com/60x40?text=Amex" alt="American Express" class="h-8 mr-3">
+                            <img src="https://via.placeholder.com/60x40?text=PayPal" alt="PayPal" class="h-8">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guarantee Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4 text-center">
+            <div class="max-w-4xl mx-auto bg-indigo-50 p-8 md:p-12 rounded-lg">
+                <div class="guarantee-badge bg-indigo-600 text-white font-bold py-2 px-6 rounded-full inline-block mb-6">
+                    30天无理由退款保证
+                </div>
+                <h2 class="text-3xl font-bold mb-6">零风险尝试</h2>
+                <p class="text-xl mb-8">我们坚信HypnoMind能帮助您实现自我提升。如果您在30天内没有看到任何积极变化，我们将全额退款，无需任何解释。</p>
+                <p class="text-lg font-semibold mb-8">您没有任何损失，却可能获得改变人生的工具。</p>
+                <a href="#cta" class="cta-button bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 px-8 rounded-lg text-lg inline-block">
+                    立即开始改变
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">常见问题</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">您可能关心的问题，我们已经准备好答案</p>
+            </div>
+            
+            <div class="max-w-3xl mx-auto">
+                <div class="faq-item mb-4">
+                    <div class="faq-question bg-white p-4 rounded-lg cursor-pointer flex justify-between items-center">
+                        <h3 class="font-bold">HypnoMind适合所有人使用吗？</h3>
+                        <i class="fas fa-chevron-down text-indigo-600"></i>
+                    </div>
+                    <div class="faq-answer px-4">
+                        <p class="text-gray-600 py-4">HypnoMind适合绝大多数成年人使用。然而，如果您有严重的精神疾病或癫痫病史，建议在使用前咨询医生。孕妇也应谨慎使用。</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item mb-4">
+                    <div class="faq-question bg-white p-4 rounded-lg cursor-pointer flex justify-between items-center">
+                        <h3 class="font-bold">多久能看到效果？</h3>
+                        <i class="fas fa-chevron-down text-indigo-600"></i>
+                    </div>
+                    <div class="faq-answer px-4">
+                        <p class="text-gray-600 py-4">大多数用户在坚持使用2-3周后开始注意到积极变化。最佳效果通常出现在持续使用30天后。效果因人而异，取决于您的目标、练习频率和催眠敏感性。</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item mb-4">
+                    <div class="faq-question bg-white p-4 rounded-lg cursor-pointer flex justify-between items-center">
+                        <h3 class="font-bold">催眠安全吗？我会失去控制吗？</h3>
+                        <i class="fas fa-chevron-down text-indigo-600"></i>
+                    </div>
+                    <div class="faq-answer px-4">
+                        <p class="text-gray-600 py-4">自我催眠是完全安全的。您始终保持着意识和控制权，可以随时停止练习。HypnoMind使用的技巧都是非侵入性的，旨在帮助您放松和接受积极建议。</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item mb-4">
+                    <div class="faq-question bg-white p-4 rounded-lg cursor-pointer flex justify-between items-center">
+                        <h3 class="font-bold">每天需要练习多久？</h3>
+                        <i class="fas fa-chevron-down text-indigo-600"></i>
+                    </div>
+                    <div class="faq-answer px-4">
+                        <p class="text-gray-600 py-4">我们建议每天练习15-20分钟。您可以选择在早晨开始一天前练习，或在晚上睡前练习。一致性比时长更重要，即使每天只练习10分钟，只要坚持也能看到效果。</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item mb-4">
+                    <div class="faq-question bg-white p-4 rounded-lg cursor-pointer flex justify-between items-center">
+                        <h3 class="font-bold">可以同时针对多个目标练习吗？</h3>
+                        <i class="fas fa-chevron-down text-indigo-600"></i>
+                    </div>
+                    <div class="faq-answer px-4">
+                        <p class="text-gray-600 py-4">可以，但建议初学者一次专注于1-2个主要目标。随着您对催眠技巧的熟悉，可以逐步增加目标数量。专业版和尊享版用户可以创建多个个性化脚本，针对不同目标进行练习。</p>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-8">
+                    <a href="#" class="inline-flex items-center text-indigo-600 font-medium">
+                        <span>查看更多问题</span>
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- YouTube Video Stream Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">用户真实案例与教学视频</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">观看这些视频，了解HypnoMind如何改变生活</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="aspect-w-16 aspect-h-9">
+                        <iframe src="https://www.youtube.com/embed/example1" frameborder="0" allowfullscreen class="w-full h-48"></iframe>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold mb-2">30天自信提升挑战 - 我的真实变化</h3>
+                        <p class="text-sm text-gray-600">用户分享使用HypnoMind一个月后的变化</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="aspect-w-16 aspect-h-9">
+                        <iframe src="https://www.youtube.com/embed/example2" frameborder="0" allowfullscreen class="w-full h-48"></iframe>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold mb-2">催眠治疗师教你如何最大化HypnoMind效果</h3>
+                        <p class="text-sm text-gray-600">专业技巧和建议</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="aspect-w-16 aspect-h-9">
+                        <iframe src="https://www.youtube.com/embed/example3" frameborder="0" allowfullscreen class="w-full h-48"></iframe>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold mb-2">5分钟快速放松催眠引导</h3>
+                        <p class="text-sm text-gray-600">体验HypnoMind的快速放松技巧</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-8">
+                <a href="#" class="inline-flex items-center text-indigo-600 font-medium">
+                    <span>观看更多视频</span>
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Twitter Feed Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">用户实时反馈</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">看看Twitter上关于HypnoMind的讨论</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="用户头像" class="w-10 h-10 rounded-full mr-3">
+                        <div>
+                            <h4 class="font-bold">@MindfulLiving</h4>
+                            <p class="text-sm text-gray-500">2小时前</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-4">使用#HypnoMind 两周，我的晨间焦虑明显减轻了。从抗拒起床到期待新的一天，这种改变太神奇了！</p>
+                    <div class="flex text-sm text-gray-500">
+                        <span class="mr-4"><i class="far fa-heart mr-1"></i> 24</span>
+                        <span><i class="far fa-comment mr-1"></i> 5</span>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/men/65.jpg" alt="用户头像" class="w-10 h-10 rounded-full mr-3">
+                        <div>
+                            <h4 class="font-bold">@TechEntrepreneur</h4>
+                            <p class="text-sm text-gray-500">5小时前</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-4">作为创业者，压力管理至关重要。#HypnoMind 的快速放松技巧让我能在会议间隙快速恢复状态，强烈推荐给所有高压职场人士！</p>
+                    <div class="flex text-sm text-gray-500">
+                        <span class="mr-4"><i class="far fa-heart mr-1"></i> 42</span>
+                        <span><i class="far fa-comment mr-1"></i> 8</span>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/women/28.jpg" alt="用户头像" class="w-10 h-10 rounded-full mr-3">
+                        <div>
+                            <h4 class="font-bold">@SleepWell</h4>
+                            <p class="text-sm text-gray-500">1天前</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-4">多年的失眠问题，试过各种方法都没用。朋友推荐了#HypnoMind，第一周就看到了改善。现在能自然入睡，感觉重获新生！</p>
+                    <div class="flex text-sm text-gray-500">
+                        <span class="mr-4"><i class="far fa-heart mr-1"></i> 36</span>
+                        <span><i class="far fa-comment mr-1"></i> 12</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-8">
+                <a href="#" class="inline-flex items-center text-indigo-600 font-medium">
+                    <span>查看更多讨论</span>
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Waiting List Section -->
+    <section id="cta" class="py-16 bg-indigo-600 text-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">加入HypnoMind内测等待列表</h2>
+                <p class="text-xl mb-8 max-w-2xl mx-auto">抢先体验创新自我提升工具，获取独家内测资格和限时优惠</p>
+                
+                <form class="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
+                    <input type="email" placeholder="您的电子邮箱" class="flex-1 py-3 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-300 text-gray-900">
+                    <button type="submit" class="cta-button bg-white hover:bg-gray-100 text-indigo-600 font-bold py-3 px-6 rounded-lg">
+                        加入等待列表
+                    </button>
+                </form>
+                
+                <p class="text-sm mt-4 opacity-80">我们尊重您的隐私。您的信息将仅用于通知您HypnoMind的发布和特别优惠。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 bg-indigo-100 rounded-lg flex items-center justify-center mr-3">
+                            <i class="fas fa-brain text-indigo-600"></i>
+                        </div>
+                        <span class="text-xl font-bold text-white">Hypno<span class="text-indigo-400">Mind</span></span>
+                    </div>
+                    <p class="text-sm mb-4">通过科学催眠技巧，帮助您解锁潜意识力量，实现自我提升。</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-white font-bold mb-4">产品</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-white">功能</a></li>
+                        <li><a href="#" class="hover:text-white">价格</a></li>
+                        <li><a href="#" class="hover:text-white">常见问题</a></li>
+                        <li><a href="#" class="hover:text-white">等待列表</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-white font-bold mb-4">资源</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-white">博客</a></li>
+                        <li><a href="#" class="hover:text-white">帮助中心</a></li>
+                        <li><a href="#" class="hover:text-white">教程</a></li>
+                        <li><a href="#" class="hover:text-white">社区</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-white font-bold mb-4">公司</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-white">关于我们</a></li>
+                        <li><a href="#" class="hover:text-white">职业</a></li>
+                        <li><a href="#" class="hover:text-white">隐私政策</a></li>
+                        <li><a href="#" class="hover:text-white">服务条款</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-sm mb-4 md:mb-0">© 2023 HypnoMind. 保留所有权利。</p>
+                    <div class="flex items-center">
+                        <span class="text-sm mr-3">语言:</span>
+                        <select class="bg-gray-800 text-white text-sm py-1 px-2 rounded focus:outline-none focus:ring-1 focus:ring-indigo-500">
+                            <option value="zh">简体中文</option>
+                            <option value="en">English</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ交互
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentElement;
+                faqItem.classList.toggle('active');
+                
+                const icon = question.querySelector('i');
+                if (faqItem.classList.contains('active')) {
+                    icon.classList.remove('fa-chevron-down');
+                    icon.classList.add('fa-chevron-up');
+                } else {
+                    icon.classList.remove('fa-chevron-up');
+                    icon.classList.add('fa-chevron-down');
+                }
+            });
+        });
+        
+        // 语言切换功能
+        const languageSelect = document.querySelector('select');
+        languageSelect.addEventListener('change', (e) => {
+            const lang = e.target.value;
+            loadLanguage(lang);
+        });
+        
+        function loadLanguage(lang) {
+            fetch(`/lang/${lang}.json`)
+                .then(response => response.json())
+                .then(data => {
+                    applyTranslations(data);
+                })
+                .catch(error => {
+                    console.error('Error loading language file:', error);
+                });
+        }
+        
+        function applyTranslations(translations) {
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const keys = el.getAttribute('data-i18n').split('.');
+                let value = translations;
+                keys.forEach(key => value = value[key]);
+                
+                if (value) {
+                    if (el.tagName === 'INPUT' && el.hasAttribute('placeholder')) {
+                        el.placeholder = value;
+                    } else {
+                        el.textContent = value;
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,132 +1,661 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- SEO Meta Tags -->
-  <meta name="description" content="A mobile simulator designed to demonstrate mobile interface design.">
-  <meta name="keywords" content="mobile, simulator, mobile design, mobile app">
-  <meta name="author" content="Your Name or Company">
-  <meta http-equiv="Content-Language" content="en">
-
-  <!-- Canonical Link -->
-  <link rel="canonical" href="https://www.yourwebsite.com/pc-simulator" />
-
-  <!-- Open Graph for Social Media -->
-  <meta property="og:title" content="PC Simulator">
-  <meta property="og:description" content="A mobile simulator designed to demonstrate mobile interface design.">
-  <meta property="og:image" content="https://www.yourwebsite.com/pc-simulator-image.jpg">
-  <meta property="og:url" content="https://www.yourwebsite.com/pc-simulator">
-  <meta property="og:type" content="website">
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="PC Simulator">
-  <meta name="twitter:description" content="A mobile simulator designed to demonstrate mobile interface design.">
-  <meta name="twitter:image" content="https://www.yourwebsite.com/pc-simulator-image.jpg">
-  <meta name="twitter:creator" content="@yourtwitterhandle">
-
-  <!-- Favicon -->
-  <link rel="icon" href="https://www.yourwebsite.com/favicon.ico" type="image/x-icon">
-
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXX-Y"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-    gtag('js', new Date());
-    gtag('config', 'UA-XXXXX-Y');
-  </script>
-
-  <!-- Microsoft Clarity -->
-  <script type="text/javascript">
-    (function(c,l,a,r,i,t,y) {
-      window.clarity=window.clarity||function(){(clarity.q=clarity.q||[]).push(arguments)};
-      clarity('set', 'anonymizeIP', true);
-      i=l.createElement('script');i.async=1;i.src=r;i.type='text/javascript';
-      t=l.getElementsByTagName('script')[0];t.parentNode.insertBefore(i,t);
-    })(document,window,'script','https://www.clarity.ms/tag/XXXXXX');
-  </script>
-
-  <title>PC Simulator</title>
-
-  <style>
-    /* Global Styles */
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #f0f0f0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      text-align: center;
-    }
-
-    .mobile-container {
-      width: 360px;
-      height: 640px;
-      border: 16px solid black;
-      border-radius: 16px;
-      background-color: #fff;
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .content {
-      font-size: 1.2rem;
-      color: #333;
-    }
-
-    /* Adjustments for PC */
-    @media (min-width: 768px) {
-      .mobile-container {
-        width: 600px;
-        height: 1000px;
-      }
-
-      .content {
-        font-size: 1.5rem;
-      }
-    }
-
-    @media (min-width: 1024px) {
-      .mobile-container {
-        width: 800px;
-        height: 1400px;
-      }
-
-      .content {
-        font-size: 1.8rem;
-      }
-    }
-
-    /* Additional responsiveness for larger screens */
-    @media (min-width: 1200px) {
-      body {
-        justify-content: flex-start;
-      }
-
-      .mobile-container {
-        margin-top: 50px;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindSpa - Self Hypnosis App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .phone-frame {
+            width: 375px;
+            height: 812px;
+            border: 12px solid #111827;
+            border-radius: 40px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+            margin: 20px;
+            display: inline-block;
+            background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+        }
+        .screen {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+        .card-hover:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+        }
+        .transition-all {
+            transition: all 0.2s ease;
+        }
+        .gradient-text {
+            background: linear-gradient(90deg, #7c3aed 0%, #6366f1 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .hypnosis-bg {
+            background: linear-gradient(135deg, rgba(124,58,237,0.1) 0%, rgba(99,102,241,0.1) 100%);
+        }
+    </style>
 </head>
+<body class="bg-gray-100 p-10 flex flex-wrap justify-center">
 
-<body>
-  <div class="mobile-container">
-    <div class="content">
-      <p>Mobile Simulator Screen</p>
-      <p>PC Version: Adjusted for larger screens.</p>
+<!-- Home Screen -->
+<div class="phone-frame">
+    <div class="screen">
+        <!-- Navigation -->
+        <div class="bg-white p-4 pt-6 pb-4 shadow-sm">
+            <div class="flex justify-between items-center">
+                <i class="fas fa-bars text-gray-600 text-xl"></i>
+                <h1 class="text-xl font-bold text-gray-800">Mind<span class="gradient-text">Spa</span></h1>
+                <i class="fas fa-user-circle text-gray-600 text-xl"></i>
+            </div>
+        </div>
+        
+        <!-- Content Area -->
+        <div class="p-4 overflow-y-auto" style="height: calc(100% - 110px)">
+            <!-- Welcome Card -->
+            <div class="hypnosis-bg rounded-xl p-5 mb-5">
+                <h2 class="text-xl font-bold text-gray-800 mb-2">Welcome back,</h2>
+                <p class="text-gray-600 text-sm">Ready for your daily mind relaxation?</p>
+                <div class="flex items-center mt-4">
+                    <div class="bg-white bg-opacity-80 rounded-full p-2 mr-2">
+                        <i class="fas fa-fire text-purple-500"></i>
+                    </div>
+                    <span class="text-xs text-gray-600">3-day streak</span>
+                </div>
+            </div>
+            
+            <!-- Quick Access -->
+            <div class="grid grid-cols-2 gap-3 mb-6">
+                <a href="#" class="bg-white rounded-xl p-4 shadow-sm card-hover transition-all">
+                    <div class="text-purple-500 mb-2">
+                        <i class="fas fa-play-circle text-2xl"></i>
+                    </div>
+                    <h3 class="font-medium text-gray-800 mb-1">Quick Session</h3>
+                    <p class="text-xs text-gray-500">5 min relaxation</p>
+                </a>
+                <a href="#" class="bg-white rounded-xl p-4 shadow-sm card-hover transition-all">
+                    <div class="text-indigo-500 mb-2">
+                        <i class="fas fa-moon text-2xl"></i>
+                    </div>
+                    <h3 class="font-medium text-gray-800 mb-1">Sleep Aid</h3>
+                    <p class="text-xs text-gray-500">Better sleep</p>
+                </a>
+            </div>
+            
+            <!-- Featured Programs -->
+            <h2 class="text-lg font-semibold mb-3 text-gray-800">Featured Programs</h2>
+            <div class="flex overflow-x-auto pb-2 space-x-3">
+                <div class="flex-shrink-0 w-48 bg-white rounded-xl overflow-hidden shadow-sm card-hover transition-all">
+                    <img src="https://images.unsplash.com/photo-1548213238-0da7521bd6e0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                         class="w-full h-24 object-cover">
+                    <div class="p-3">
+                        <h3 class="font-medium text-gray-800">Stress Relief</h3>
+                        <p class="text-xs text-gray-500 mt-1">7 sessions • 15 min</p>
+                    </div>
+                </div>
+                <div class="flex-shrink-0 w-48 bg-white rounded-xl overflow-hidden shadow-sm card-hover transition-all">
+                    <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                         class="w-full h-24 object-cover">
+                    <div class="p-3">
+                        <h3 class="font-medium text-gray-800">Confidence Boost</h3>
+                        <p class="text-xs text-gray-500 mt-1">5 sessions • 10 min</p>
+                    </div>
+                </div>
+                <div class="flex-shrink-0 w-48 bg-white rounded-xl overflow-hidden shadow-sm card-hover transition-all">
+                    <img src="https://images.unsplash.com/photo-1497250681960-ef046c08a56e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                         class="w-full h-24 object-cover">
+                    <div class="p-3">
+                        <h3 class="font-medium text-gray-800">Focus & Clarity</h3>
+                        <p class="text-xs text-gray-500 mt-1">6 sessions • 12 min</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Recent Activity -->
+            <h2 class="text-lg font-semibold mt-6 mb-3 text-gray-800">Recent Activity</h2>
+            <div class="space-y-3">
+                <div class="bg-white rounded-xl p-3 shadow-sm">
+                    <div class="flex items-center">
+                        <div class="bg-purple-100 text-purple-600 p-2 rounded-lg mr-3">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-sm font-medium text-gray-800">Stress Relief Session</h3>
+                            <p class="text-xs text-gray-500">Yesterday • 12 min</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl p-3 shadow-sm">
+                    <div class="flex items-center">
+                        <div class="bg-indigo-100 text-indigo-600 p-2 rounded-lg mr-3">
+                            <i class="fas fa-moon"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-sm font-medium text-gray-800">Sleep Induction</h3>
+                            <p class="text-xs text-gray-500">2 days ago • 18 min</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Bottom Navigation -->
+        <div class="absolute bottom-0 w-full bg-white border-t border-gray-100 flex justify-around py-3">
+            <div class="text-center text-purple-500">
+                <i class="fas fa-home block text-xl"></i>
+                <span class="text-xs mt-1">Home</span>
+            </div>
+            <div class="text-center text-gray-400">
+                <i class="fas fa-compass block text-xl"></i>
+                <span class="text-xs mt-1">Discover</span>
+            </div>
+            <div class="text-center text-gray-400">
+                <i class="fas fa-book block text-xl"></i>
+                <span class="text-xs mt-1">Library</span>
+            </div>
+            <div class="text-center text-gray-400">
+                <i class="fas fa-chart-line block text-xl"></i>
+                <span class="text-xs mt-1">Progress</span>
+            </div>
+        </div>
     </div>
-  </div>
-</body>
+</div>
 
+<!-- Discover Screen -->
+<div class="phone-frame">
+    <div class="screen">
+        <!-- Navigation -->
+        <div class="bg-white p-4 pt-6 pb-4 shadow-sm">
+            <div class="flex justify-between items-center">
+                <i class="fas fa-arrow-left text-gray-600 text-xl"></i>
+                <h1 class="text-xl font-bold text-gray-800">Discover</h1>
+                <i class="fas fa-search text-gray-600 text-xl"></i>
+            </div>
+        </div>
+        
+        <!-- Content Area -->
+        <div class="p-4 overflow-y-auto" style="height: calc(100% - 110px)">
+            <!-- Categories -->
+            <div class="mb-6">
+                <h2 class="text-lg font-semibold mb-3 text-gray-800">Categories</h2>
+                <div class="grid grid-cols-2 gap-3">
+                    <a href="#" class="bg-white rounded-xl p-4 shadow-sm card-hover transition-all">
+                        <div class="text-purple-500 mb-2">
+                            <i class="fas fa-brain text-2xl"></i>
+                        </div>
+                        <h3 class="font-medium text-gray-800 mb-1">Stress Relief</h3>
+                        <p class="text-xs text-gray-500">12 programs</p>
+                    </a>
+                    <a href="#" class="bg-white rounded-xl p-4 shadow-sm card-hover transition-all">
+                        <div class="text-indigo-500 mb-2">
+                            <i class="fas fa-moon text-2xl"></i>
+                        </div>
+                        <h3 class="font-medium text-gray-800 mb-1">Sleep</h3>
+                        <p class="text-xs text-gray-500">8 programs</p>
+                    </a>
+                    <a href="#" class="bg-white rounded-xl p-4 shadow-sm card-hover transition-all">
+                        <div class="text-blue-500 mb-2">
+                            <i class="fas fa-bolt text-2xl"></i>
+                        </div>
+                        <h3 class="font-medium text-gray-800 mb-1">Energy Boost</h3>
+                        <p class="text-xs text-gray-500">5 programs</p>
+                    </a>
+                    <a href="#" class="bg-white rounded-xl p-4 shadow-sm card-hover transition-all">
+                        <div class="text-green-500 mb-2">
+                            <i class="fas fa-medal text-2xl"></i>
+                        </div>
+                        <h3 class="font-medium text-gray-800 mb-1">Confidence</h3>
+                        <p class="text-xs text-gray-500">7 programs</p>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Popular Programs -->
+            <h2 class="text-lg font-semibold mb-3 text-gray-800">Popular Programs</h2>
+            <div class="space-y-3 mb-6">
+                <div class="bg-white rounded-xl overflow-hidden shadow-sm card-hover transition-all">
+                    <div class="flex">
+                        <img src="https://images.unsplash.com/photo-1544568100-847a948585b9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                             class="w-24 h-24 object-cover">
+                        <div class="p-3 flex-1">
+                            <h3 class="font-medium text-gray-800">Deep Relaxation</h3>
+                            <p class="text-xs text-gray-500 mt-1">Progressive muscle relaxation technique</p>
+                            <div class="flex items-center mt-2">
+                                <i class="fas fa-star text-yellow-400 text-xs mr-1"></i>
+                                <span class="text-xs text-gray-500 mr-3">4.8 (1.2k)</span>
+                                <i class="fas fa-clock text-gray-400 text-xs mr-1"></i>
+                                <span class="text-xs text-gray-500">15 min</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl overflow-hidden shadow-sm card-hover transition-all">
+                    <div class="flex">
+                        <img src="https://images.unsplash.com/photo-1518604666860-9ed391f76460?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                             class="w-24 h-24 object-cover">
+                        <div class="p-3 flex-1">
+                            <h3 class="font-medium text-gray-800">Sleep Induction</h3>
+                            <p class="text-xs text-gray-500 mt-1">Fall asleep faster and deeper</p>
+                            <div class="flex items-center mt-2">
+                                <i class="fas fa-star text-yellow-400 text-xs mr-1"></i>
+                                <span class="text-xs text-gray-500 mr-3">4.9 (2.4k)</span>
+                                <i class="fas fa-clock text-gray-400 text-xs mr-1"></i>
+                                <span class="text-xs text-gray-500">20 min</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Guided vs Self -->
+            <h2 class="text-lg font-semibold mb-3 text-gray-800">Session Types</h2>
+            <div class="grid grid-cols-2 gap-3">
+                <a href="#" class="bg-white rounded-xl p-4 shadow-sm card-hover transition-all text-center">
+                    <div class="text-purple-500 mb-2 mx-auto">
+                        <i class="fas fa-headphones text-2xl"></i>
+                    </div>
+                    <h3 class="font-medium text-gray-800 mb-1">Guided</h3>
+                    <p class="text-xs text-gray-500">With voice instruction</p>
+                </a>
+                <a href="#" class="bg-white rounded-xl p-4 shadow-sm card-hover transition-all text-center">
+                    <div class="text-indigo-500 mb-2 mx-auto">
+                        <i class="fas fa-user text-2xl"></i>
+                    </div>
+                    <h3 class="font-medium text-gray-800 mb-1">Self</h3>
+                    <p class="text-xs text-gray-500">Silent sessions</p>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Bottom Navigation -->
+        <div class="absolute bottom-0 w-full bg-white border-t border-gray-100 flex justify-around py-3">
+            <div class="text-center text-gray-400">
+                <i class="fas fa-home block text-xl"></i>
+                <span class="text-xs mt-1">Home</span>
+            </div>
+            <div class="text-center text-purple-500">
+                <i class="fas fa-compass block text-xl"></i>
+                <span class="text-xs mt-1">Discover</span>
+            </div>
+            <div class="text-center text-gray-400">
+                <i class="fas fa-book block text-xl"></i>
+                <span class="text-xs mt-1">Library</span>
+            </div>
+            <div class="text-center text-gray-400">
+                <i class="fas fa-chart-line block text-xl"></i>
+                <span class="text-xs mt-1">Progress</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Library Screen -->
+<div class="phone-frame">
+    <div class="screen">
+        <!-- Navigation -->
+        <div class="bg-white p-4 pt-6 pb-4 shadow-sm">
+            <div class="flex justify-between items-center">
+                <i class="fas fa-arrow-left text-gray-600 text-xl"></i>
+                <h1 class="text-xl font-bold text-gray-800">Library</h1>
+                <i class="fas fa-filter text-gray-600 text-xl"></i>
+            </div>
+        </div>
+        
+        <!-- Content Area -->
+        <div class="p-4 overflow-y-auto" style="height: calc(100% - 110px)">
+            <!-- Saved Sessions -->
+            <h2 class="text-lg font-semibold mb-3 text-gray-800">Saved Sessions</h2>
+            <div class="space-y-3 mb-6">
+                <div class="bg-white rounded-xl p-3 shadow-sm card-hover transition-all">
+                    <div class="flex items-center">
+                        <div class="bg-purple-100 text-purple-600 p-2 rounded-lg mr-3">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-medium text-gray-800">Morning Energy Boost</h3>
+                            <p class="text-xs text-gray-500">10 min • Guided</p>
+                        </div>
+                        <i class="fas fa-play text-purple-500"></i>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl p-3 shadow-sm card-hover transition-all">
+                    <div class="flex items-center">
+                        <div class="bg-indigo-100 text-indigo-600 p-2 rounded-lg mr-3">
+                            <i class="fas fa-moon"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-medium text-gray-800">Deep Sleep Induction</h3>
+                            <p class="text-xs text-gray-500">20 min • Guided</p>
+                        </div>
+                        <i class="fas fa-play text-indigo-500"></i>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl p-3 shadow-sm card-hover transition-all">
+                    <div class="flex items-center">
+                        <div class="bg-green-100 text-green-600 p-2 rounded-lg mr-3">
+                            <i class="fas fa-medal"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-medium text-gray-800">Confidence Builder</h3>
+                            <p class="text-xs text-gray-500">15 min • Self</p>
+                        </div>
+                        <i class="fas fa-play text-green-500"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Custom Sessions -->
+            <h2 class="text-lg font-semibold mb-3 text-gray-800">Custom Sessions</h2>
+            <div class="space-y-3 mb-6">
+                <div class="bg-white rounded-xl p-3 shadow-sm card-hover transition-all">
+                    <div class="flex items-center">
+                        <div class="bg-blue-100 text-blue-600 p-2 rounded-lg mr-3">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-medium text-gray-800">My Focus Session</h3>
+                            <p class="text-xs text-gray-500">12 min • Self</p>
+                        </div>
+                        <i class="fas fa-ellipsis-v text-gray-400"></i>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl p-3 shadow-sm card-hover transition-all">
+                    <div class="flex items-center">
+                        <div class="bg-yellow-100 text-yellow-600 p-2 rounded-lg mr-3">
+                            <i class="fas fa-sun"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-medium text-gray-800">Quick Relaxation</h3>
+                            <p class="text-xs text-gray-500">5 min • Self</p>
+                        </div>
+                        <i class="fas fa-ellipsis-v text-gray-400"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Create New -->
+            <button class="w-full bg-purple-500 text-white rounded-xl p-4 shadow-sm card-hover transition-all flex items-center justify-center">
+                <i class="fas fa-plus mr-2"></i>
+                <span>Create Custom Session</span>
+            </button>
+        </div>
+        
+        <!-- Bottom Navigation -->
+        <div class="absolute bottom-0 w-full bg-white border-t border-gray-100 flex justify-around py-3">
+            <div class="text-center text-gray-400">
+                <i class="fas fa-home block text-xl"></i>
+                <span class="text-xs mt-1">Home</span>
+            </div>
+            <div class="text-center text-gray-400">
+                <i class="fas fa-compass block text-xl"></i>
+                <span class="text-xs mt-1">Discover</span>
+            </div>
+            <div class="text-center text-purple-500">
+                <i class="fas fa-book block text-xl"></i>
+                <span class="text-xs mt-1">Library</span>
+            </div>
+            <div class="text-center text-gray-400">
+                <i class="fas fa-chart-line block text-xl"></i>
+                <span class="text-xs mt-1">Progress</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Progress Screen -->
+<div class="phone-frame">
+    <div class="screen">
+        <!-- Navigation -->
+        <div class="bg-white p-4 pt-6 pb-4 shadow-sm">
+            <div class="flex justify-between items-center">
+                <i class="fas fa-arrow-left text-gray-600 text-xl"></i>
+                <h1 class="text-xl font-bold text-gray-800">Progress</h1>
+                <i class="fas fa-calendar text-gray-600 text-xl"></i>
+            </div>
+        </div>
+        
+        <!-- Content Area -->
+        <div class="p-4 overflow-y-auto" style="height: calc(100% - 110px)">
+            <!-- Stats Overview -->
+            <div class="bg-white rounded-xl p-4 shadow-sm mb-5">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="font-medium text-gray-800">This Week</h2>
+                    <span class="text-xs text-purple-500">+20% from last week</span>
+                </div>
+                <div class="grid grid-cols-3 gap-3 text-center">
+                    <div>
+                        <div class="text-2xl font-bold text-purple-500">4</div>
+                        <div class="text-xs text-gray-500">Sessions</div>
+                    </div>
+                    <div>
+                        <div class="text-2xl font-bold text-indigo-500">58</div>
+                        <div class="text-xs text-gray-500">Minutes</div>
+                    </div>
+                    <div>
+                        <div class="text-2xl font-bold text-green-500">3</div>
+                        <div class="text-xs text-gray-500">Days streak</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Weekly Chart -->
+            <div class="bg-white rounded-xl p-4 shadow-sm mb-5">
+                <h2 class="font-medium text-gray-800 mb-3">Weekly Activity</h2>
+                <div class="flex justify-between items-end h-32">
+                    <div class="flex-1 flex flex-col items-center">
+                        <div class="bg-purple-100 w-6 rounded-t-md" style="height: 20%;"></div>
+                        <div class="text-xs text-gray-500 mt-1">Mon</div>
+                    </div>
+                    <div class="flex-1 flex flex-col items-center">
+                        <div class="bg-purple-300 w-6 rounded-t-md" style="height: 40%;"></div>
+                        <div class="text-xs text-gray-500 mt-1">Tue</div>
+                    </div>
+                    <div class="flex-1 flex flex-col items-center">
+                        <div class="bg-purple-500 w-6 rounded-t-md" style="height: 80%;"></div>
+                        <div class="text-xs text-gray-500 mt-1">Wed</div>
+                    </div>
+                    <div class="flex-1 flex flex-col items-center">
+                        <div class="bg-purple-300 w-6 rounded-t-md" style="height: 50%;"></div>
+                        <div class="text-xs text-gray-500 mt-1">Thu</div>
+                    </div>
+                    <div class="flex-1 flex flex-col items-center">
+                        <div class="bg-purple-100 w-6 rounded-t-md" style="height: 30%;"></div>
+                        <div class="text-xs text-gray-500 mt-1">Fri</div>
+                    </div>
+                    <div class="flex-1 flex flex-col items-center">
+                        <div class="bg-purple-100 w-6 rounded-t-md" style="height: 10%;"></div>
+                        <div class="text-xs text-gray-500 mt-1">Sat</div>
+                    </div>
+                    <div class="flex-1 flex flex-col items-center">
+                        <div class="bg-purple-100 w-6 rounded-t-md" style="height: 0%;"></div>
+                        <div class="text-xs text-gray-500 mt-1">Sun</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Session Types -->
+            <h2 class="text-lg font-semibold mb-3 text-gray-800">Session Types</h2>
+            <div class="grid grid-cols-2 gap-3 mb-6">
+                <div class="bg-white rounded-xl p-3 shadow-sm">
+                    <div class="flex items-center mb-2">
+                        <div class="bg-purple-100 text-purple-600 p-2 rounded-lg mr-2">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <span class="font-medium text-gray-800">Relaxation</span>
+                    </div>
+                    <div class="text-xs text-gray-500">2 sessions • 30 min</div>
+                </div>
+                <div class="bg-white rounded-xl p-3 shadow-sm">
+                    <div class="flex items-center mb-2">
+                        <div class="bg-indigo-100 text-indigo-600 p-2 rounded-lg mr-2">
+                            <i class="fas fa-moon"></i>
+                        </div>
+                        <span class="font-medium text-gray-800">Sleep</span>
+                    </div>
+                    <div class="text-xs text-gray-500">1 session • 20 min</div>
+                </div>
+                <div class="bg-white rounded-xl p-3 shadow-sm">
+                    <div class="flex items-center mb-2">
+                        <div class="bg-green-100 text-green-600 p-2 rounded-lg mr-2">
+                            <i class="fas fa-medal"></i>
+                        </div>
+                        <span class="font-medium text-gray-800">Confidence</span>
+                    </div>
+                    <div class="text-xs text-gray-500">1 session • 15 min</div>
+                </div>
+            </div>
+            
+            <!-- Achievements -->
+            <h2 class="text-lg font-semibold mb-3 text-gray-800">Achievements</h2>
+            <div class="grid grid-cols-3 gap-3">
+                <div class="bg-white rounded-xl p-3 shadow-sm text-center">
+                    <div class="bg-purple-100 text-purple-600 p-3 rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-2">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <div class="text-xs font-medium text-gray-800">3-Day Streak</div>
+                </div>
+                <div class="bg-white rounded-xl p-3 shadow-sm text-center">
+                    <div class="bg-indigo-100 text-indigo-600 p-3 rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-2">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="text-xs font-medium text-gray-800">1 Hour</div>
+                </div>
+                <div class="bg-white rounded-xl p-3 shadow-sm text-center">
+                    <div class="bg-green-100 text-green-600 p-3 rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-2">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <div class="text-xs font-medium text-gray-800">Beginner</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Bottom Navigation -->
+        <div class="absolute bottom-0 w-full bg-white border-t border-gray-100 flex justify-around py-3">
+            <div class="text-center text-gray-400">
+                <i class="fas fa-home block text-xl"></i>
+                <span class="text-xs mt-1">Home</span>
+            </div>
+            <div class="text-center text-gray-400">
+                <i class="fas fa-compass block text-xl"></i>
+                <span class="text-xs mt-1">Discover</span>
+            </div>
+            <div class="text-center text-gray-400">
+                <i class="fas fa-book block text-xl"></i>
+                <span class="text-xs mt-1">Library</span>
+            </div>
+            <div class="text-center text-purple-500">
+                <i class="fas fa-chart-line block text-xl"></i>
+                <span class="text-xs mt-1">Progress</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Session Player Screen -->
+<div class="phone-frame">
+    <div class="screen">
+        <!-- Session Header -->
+        <div class="relative">
+            <img src="https://images.unsplash.com/photo-1544568100-847a948585b9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                 class="w-full h-48 object-cover">
+            <div class="absolute top-0 left-0 right-0 bg-gradient-to-b from-black to-transparent p-4">
+                <div class="flex justify-between items-center">
+                    <i class="fas fa-chevron-down text-white text-xl"></i>
+                    <i class="fas fa-ellipsis-h text-white text-xl"></i>
+                </div>
+            </div>
+            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4 pt-8">
+                <h1 class="text-white text-xl font-bold">Deep Relaxation</h1>
+                <p class="text-white text-opacity-80 text-sm">Progressive muscle relaxation</p>
+            </div>
+        </div>
+        
+        <!-- Player Controls -->
+        <div class="p-4">
+            <!-- Progress Bar -->
+            <div class="mb-4">
+                <div class="flex justify-between text-xs text-gray-500 mb-1">
+                    <span>2:15</span>
+                    <span>15:00</span>
+                </div>
+                <div class="bg-gray-200 rounded-full h-2">
+                    <div class="bg-purple-500 rounded-full h-2" style="width: 15%"></div>
+                </div>
+            </div>
+            
+            <!-- Controls -->
+            <div class="flex justify-center items-center mb-6">
+                <button class="text-gray-500 mx-4">
+                    <i class="fas fa-step-backward text-xl"></i>
+                </button>
+                <button class="bg-purple-500 text-white rounded-full p-4 shadow-lg mx-4">
+                    <i class="fas fa-pause text-xl"></i>
+                </button>
+                <button class="text-gray-500 mx-4">
+                    <i class="fas fa-step-forward text-xl"></i>
+                </button>
+            </div>
+            
+            <!-- Volume -->
+            <div class="flex items-center mb-6">
+                <i class="fas fa-volume-down text-gray-500 mr-2"></i>
+                <div class="bg-gray-200 rounded-full h-2 flex-1">
+                    <div class="bg-purple-500 rounded-full h-2" style="width: 70%"></div>
+                </div>
+                <i class="fas fa-volume-up text-gray-500 ml-2"></i>
+            </div>
+            
+            <!-- Session Info -->
+            <div class="bg-white rounded-xl p-4 shadow-sm mb-4">
+                <h2 class="font-medium text-gray-800 mb-2">About This Session</h2>
+                <p class="text-sm text-gray-600">This guided session uses progressive muscle relaxation techniques to help you release tension and achieve deep relaxation. Perfect for stress relief and calming the mind.</p>
+            </div>
+            
+            <!-- Options -->
+            <div class="grid grid-cols-3 gap-3">
+                <button class="bg-white rounded-xl p-3 shadow-sm flex flex-col items-center">
+                    <i class="fas fa-heart text-purple-500 mb-1"></i>
+                    <span class="text-xs text-gray-700">Favorite</span>
+                </button>
+                <button class="bg-white rounded-xl p-3 shadow-sm flex flex-col items-center">
+                    <i class="fas fa-bell text-purple-500 mb-1"></i>
+                    <span class="text-xs text-gray-700">Reminder</span>
+                </button>
+                <button class="bg-white rounded-xl p-3 shadow-sm flex flex-col items-center">
+                    <i class="fas fa-share text-purple-500 mb-1"></i>
+                    <span class="text-xs text-gray-700">Share</span>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Bottom Navigation -->
+        <div class="absolute bottom-0 w-full bg-white border-t border-gray-100 flex justify-around py-3">
+            <div class="text-center text-gray-400">
+                <i class="fas fa-home block text-xl"></i>
+                <span class="text-xs mt-1">Home</span>
+            </div>
+            <div class="text-center text-gray-400">
+                <i class="fas fa-compass block text-xl"></i>
+                <span class="text-xs mt-1">Discover</span>
+            </div>
+            <div class="text-center text-gray-400">
+                <i class="fas fa-book block text-xl"></i>
+                <span class="text-xs mt-1">Library</span>
+            </div>
+            <div class="text-center text-gray-400">
+                <i class="fas fa-chart-line block text-xl"></i>
+                <span class="text-xs mt-1">Progress</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
 </html>

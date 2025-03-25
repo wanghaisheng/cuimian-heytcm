@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindSculpt - Self-Hypnosis App</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* 模拟手机界面 */
+        .phone-frame {
+            max-width: 414px;
+            height: 896px;
+            margin: 0 auto;
+            border-radius: 40px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            position: relative;
+            background: #f8fafc;
+        }
+        
+        /* 状态栏模拟 */
+        .status-bar {
+            height: 44px;
+            background: rgba(255,255,255,0.9);
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+            align-items: center;
+            font-size: 12px;
+        }
+        
+        /* 页面容器 */
+        .page {
+            height: calc(100% - 44px - 60px);
+            overflow-y: auto;
+            display: none;
+        }
+        
+        .page.active {
+            display: block;
+        }
+        
+        /* 底部导航栏 */
+        .tab-bar {
+            height: 60px;
+            background: white;
+            display: flex;
+            border-top: 1px solid #e2e8f0;
+        }
+        
+        .tab {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #64748b;
+            font-size: 12px;
+        }
+        
+        .tab.active {
+            color: #6366f1;
+        }
+        
+        .tab i {
+            font-size: 20px;
+            margin-bottom: 4px;
+        }
+        
+        /* 催眠卡片 */
+        .hypno-card {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.2s;
+        }
+        
+        .hypno-card:hover {
+            transform: translateY(-2px);
+        }
+        
+        /* 进度环 */
+        .progress-ring {
+            transform: rotate(-90deg);
+        }
+        
+        .progress-ring__circle {
+            stroke-dasharray: 283;
+            stroke-dashoffset: 283;
+            transition: stroke-dashoffset 0.5s;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen p-4">
+    <div class="phone-frame">
+        <!-- 状态栏 -->
+        <div class="status-bar">
+            <div>9:41</div>
+            <div class="flex space-x-1">
+                <i class="fas fa-signal"></i>
+                <i class="fas fa-wifi"></i>
+                <i class="fas fa-battery-three-quarters"></i>
+            </div>
+        </div>
+        
+        <!-- 页面内容 -->
+        <div id="home-page" class="page active p-4">
+            <h1 class="text-2xl font-bold mb-6">Welcome Back, User</h1>
+            
+            <div class="mb-8">
+                <h2 class="text-lg font-semibold mb-3">Recommended for You</h2>
+                <div class="bg-indigo-600 text-white hypno-card p-6 rounded-lg">
+                    <h3 class="text-xl font-bold mb-2">Quick Confidence Boost</h3>
+                    <p class="mb-4">5-minute session to enhance self-esteem</p>
+                    <button class="bg-white text-indigo-600 px-4 py-2 rounded-full font-medium">Start Now</button>
+                </div>
+            </div>
+            
+            <div class="mb-8">
+                <h2 class="text-lg font-semibold mb-3">Your Goals</h2>
+                <div class="grid grid-cols-2 gap-3">
+                    <div class="bg-white hypno-card p-4">
+                        <div class="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center mb-2">
+                            <i class="fas fa-brain text-indigo-600"></i>
+                        </div>
+                        <h3 class="font-medium">Confidence</h3>
+                        <div class="text-xs text-gray-500">3 sessions this week</div>
+                    </div>
+                    <div class="bg-white hypno-card p-4">
+                        <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mb-2">
+                            <i class="fas fa-cloud text-green-600"></i>
+                        </div>
+                        <h3 class="font-medium">Stress Relief</h3>
+                        <div class="text-xs text-gray-500">2 sessions this week</div>
+                    </div>
+                    <div class="bg-white hypno-card p-4">
+                        <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mb-2">
+                            <i class="fas fa-moon text-purple-600"></i>
+                        </div>
+                        <h3 class="font-medium">Sleep</h3>
+                        <div class="text-xs text-gray-500">5 sessions this week</div>
+                    </div>
+                    <div class="bg-white hypno-card p-4">
+                        <div class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center mb-2">
+                            <i class="fas fa-fire text-yellow-600"></i>
+                        </div>
+                        <h3 class="font-medium">Motivation</h3>
+                        <div class="text-xs text-gray-500">1 session this week</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div>
+                <h2 class="text-lg font-semibold mb-3">Recent Sessions</h2>
+                <div class="space-y-3">
+                    <div class="bg-white hypno-card p-4 flex items-center">
+                        <div class="w-10 h-10 bg-indigo-100 rounded-full flex items-center justify-center mr-3">
+                            <i class="fas fa-check text-indigo-600"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-medium">Deep Relaxation</h3>
+                            <div class="text-xs text-gray-500">Yesterday, 15 min</div>
+                        </div>
+                        <i class="fas fa-chevron-right text-gray-400"></i>
+                    </div>
+                    <div class="bg-white hypno-card p-4 flex items-center">
+                        <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center mr-3">
+                            <i class="fas fa-check text-green-600"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-medium">Focus Enhancement</h3>
+                            <div class="text-xs text-gray-500">2 days ago, 10 min</div>
+                        </div>
+                        <i class="fas fa-chevron-right text-gray-400"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 催眠库页面 -->
+        <div id="library-page" class="page p-4">
+            <h1 class="text-2xl font-bold mb-6">Hypnosis Library</h1>
+            
+            <div class="mb-6">
+                <div class="flex items-center justify-between mb-3">
+                    <h2 class="text-lg font-semibold">Popular Categories</h2>
+                    <a href="#" class="text-sm text-indigo-600">See All</a>
+                </div>
+                <div class="grid grid-cols-2 gap-3">
+                    <div class="bg-white hypno-card p-4">
+                        <div class="w-full h-24 bg-indigo-100 rounded-lg mb-2 flex items-center justify-center">
+                            <i class="fas fa-brain text-3xl text-indigo-600"></i>
+                        </div>
+                        <h3 class="font-medium text-center">Confidence</h3>
+                    </div>
+                    <div class="bg-white hypno-card p-4">
+                        <div class="w-full h-24 bg-green-100 rounded-lg mb-2 flex items-center justify-center">
+                            <i class="fas fa-cloud text-3xl text-green-600"></i>
+                        </div>
+                        <h3 class="font-medium text-center">Stress Relief</h3>
+                    </div>
+                    <div class="bg-white hypno-card p-4">
+                        <div class="w-full h-24 bg-purple-100 rounded-lg mb-2 flex items-center justify-center">
+                            <i class="fas fa-moon text-3xl text-purple-600"></i>
+                        </div>
+                        <h3 class="font-medium text-center">Sleep</h3>
+                    </div>
+                    <div class="bg-white hypno-card p-4">
+                        <div class="w-full h-24 bg-yellow-100 rounded-lg mb-2 flex items-center justify-center">
+                            <i class="fas fa-fire text-3xl text-yellow-600"></i>
+                        </div>
+                        <h3 class="font-medium text-center">Motivation</h3>
+                    </div>
+                </div>
+            </div>
+            
+            <div>
+                <h2 class="text-lg font-semibold mb-3">Featured Programs</h2>
+                <div class="space-y-3">
+                    <div class="bg-white hypno-card p-4">
+                        <div class="flex items-start">
+                            <div class="w-16 h-16 bg-indigo-100 rounded-lg flex items-center justify-center mr-3">
+                                <i class="fas fa-brain text-2xl text-indigo-600"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="font-medium">7-Day Confidence Challenge</h3>
+                                <p class="text-sm text-gray-600 mb-2">Daily sessions to boost your self-esteem</p>
+                                <div class="flex items-center text-xs text-gray-500">
+                                    <i class="fas fa-clock mr-1"></i>
+                                    <span>10-15 min/day</span>
+                                    <span class="mx-2">•</span>
+                                    <i class="fas fa-calendar mr-1"></i>
+                                    <span>7 days</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white hypno-card p-4">
+                        <div class="flex items-start">
+                            <div class="w-16 h-16 bg-green-100 rounded-lg flex items-center justify-center mr-3">
+                                <i class="fas fa-cloud text-2xl text-green-600"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="font-medium">Deep Relaxation Series</h3>
+                                <p class="text-sm text-gray-600 mb-2">Release tension and find inner peace</p>
+                                <div class="flex items-center text-xs text-gray-500">
+                                    <i class="fas fa-clock mr-1"></i>
+                                    <span>20-30 min/session</span>
+                                    <span class="mx-2">•</span>
+                                    <i class="fas fa-calendar mr-1"></i>
+                                    <span>5 sessions</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 创建页面 -->
+        <div id="create-page" class="page p-4">
+            <h1 class="text-2xl font-bold mb-6">Create Session</h1>
+            
+            <div class="bg-white rounded-lg p-4 mb-6">
+                <h2 class="font-semibold mb-3">Session Details</h2>
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Session Name</label>
+                        <input type="text" class="w-full border rounded-lg px-3 py-2" placeholder="e.g. Morning Confidence Boost">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Purpose</label>
+                        <select class="w-full border rounded-lg px-3 py-2">
+                            <option>Confidence</option>
+                            <option>Stress Relief</option>
+                            <option>Sleep</option>
+                            <option>Motivation</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Duration</label>
+                        <select class="w-full border rounded-lg px-3 py-2">
+                            <option>5 minutes</option>
+                            <option>10 minutes</option>
+                            <option>15 minutes</option>
+                            <option>20 minutes</option>
+                            <option>30 minutes</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-lg p-4 mb-6">
+                <h2 class="font-semibold mb-3">Hypnosis Technique</h2>
+                <div class="space-y-3">
+                    <div class="flex items-center justify-between p-3 border rounded-lg">
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 bg-indigo-100 rounded-full flex items-center justify-center mr-3">
+                                <i class="fas fa-spa text-indigo-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-medium">Progressive Relaxation</h3>
+                                <p class="text-xs text-gray-500">Gradually relax each muscle group</p>
+                            </div>
+                        </div>
+                        <input type="radio" name="technique" checked>
+                    </div>
+                    <div class="flex items-center justify-between p-3 border rounded-lg">
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center mr-3">
+                                <i class="fas fa-eye text-purple-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-medium">Visualization</h3>
+                                <p class="text-xs text-gray-500">Guided imagery for transformation</p>
+                            </div>
+                        </div>
+                        <input type="radio" name="technique">
+                    </div>
+                    <div class="flex items-center justify-between p-3 border rounded-lg">
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center mr-3">
+                                <i class="fas fa-comment-dots text-green-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-medium">Direct Suggestion</h3>
+                                <p class="text-xs text-gray-500">Positive affirmations and commands</p>
+                            </div>
+                        </div>
+                        <input type="radio" name="technique">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-lg p-4 mb-6">
+                <h2 class="font-semibold mb-3">Background Sound</h2>
+                <div class="grid grid-cols-3 gap-3">
+                    <div class="border rounded-lg p-3 text-center">
+                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                            <i class="fas fa-water text-blue-600"></i>
+                        </div>
+                        <span class="text-sm">Ocean Waves</span>
+                    </div>
+                    <div class="border rounded-lg p-3 text-center">
+                        <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                            <i class="fas fa-wind text-green-600"></i>
+                        </div>
+                        <span class="text-sm">Forest</span>
+                    </div>
+                    <div class="border rounded-lg p-3 text-center">
+                        <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                            <i class="fas fa-music text-purple-600"></i>
+                        </div>
+                        <span class="text-sm">White Noise</span>
+                    </div>
+                </div>
+            </div>
+            
+            <button class="w-full bg-indigo-600 text-white py-3 rounded-lg font-medium">Create Session</button>
+        </div>
+        
+        <!-- 进度页面 -->
+        <div id="progress-page" class="page p-4">
+            <h1 class="text-2xl font-bold mb-6">Your Progress</h1>
+            
+            <div class="bg-white rounded-lg p-4 mb-6">
+                <h2 class="font-semibold mb-4">Weekly Summary</h2>
+                <div class="flex justify-between items-center">
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-indigo-600">5</div>
+                        <div class="text-sm text-gray-500">Sessions</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-green-600">3h 15m</div>
+                        <div class="text-sm text-gray-500">Total Time</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-purple-600">87%</div>
+                        <div class="text-sm text-gray-500">Consistency</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-lg p-4 mb-6">
+                <h2 class="font-semibold mb-4">Goal Progress</h2>
+                <div class="space-y-4">
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="font-medium">Confidence</span>
+                            <span class="text-sm text-gray-500">3/5 sessions</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-indigo-600 h-2 rounded-full" style="width: 60%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="font-medium">Stress Relief</span>
+                            <span class="text-sm text-gray-500">2/3 sessions</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-green-600 h-2 rounded-full" style="width: 66%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="font-medium">Sleep Quality</span>
+                            <span class="text-sm text-gray-500">5/7 sessions</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-purple-600 h-2 rounded-full" style="width: 71%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-lg p-4">
+                <h2 class="font-semibold mb-4">Achievements</h2>
+                <div class="grid grid-cols-3 gap-3">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                            <i class="fas fa-medal text-indigo-600 text-2xl"></i>
+                        </div>
+                        <span class="text-sm">7-Day Streak</span>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                            <i class="fas fa-star text-green-600 text-2xl"></i>
+                        </div>
+                        <span class="text-sm">Early Bird</span>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                            <i class="fas fa-trophy text-yellow-600 text-2xl"></i>
+                        </div>
+                        <span class="text-sm">Consistency</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 设置页面 -->
+        <div id="settings-page" class="page p-4">
+            <h1 class="text-2xl font-bold mb-6">Settings</h1>
+            
+            <div class="bg-white rounded-lg overflow-hidden mb-6">
+                <div class="p-4 border-b flex items-center">
+                    <div class="w-10 h-10 bg-indigo-100 rounded-full flex items-center justify-center mr-3">
+                        <i class="fas fa-user text-indigo-600"></i>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="font-medium">Account</h3>
+                        <p class="text-xs text-gray-500">Manage your profile and preferences</p>
+                    </div>
+                    <i class="fas fa-chevron-right text-gray-400"></i>
+                </div>
+                <div class="p-4 border-b flex items-center">
+                    <div class="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center mr-3">
+                        <i class="fas fa-bell text-purple-600"></i>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="font-medium">Notifications</h3>
+                        <p class="text-xs text-gray-500">Customize your alerts</p>
+                    </div>
+                    <i class="fas fa-chevron-right text-gray-400"></i>
+                </div>
+                <div class="p-4 border-b flex items-center">
+                    <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mr-3">
+                        <i class="fas fa-moon text-blue-600"></i>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="font-medium">Sleep Mode</h3>
+                        <p class="text-xs text-gray-500">Configure bedtime settings</p>
+                    </div>
+                    <i class="fas fa-chevron-right text-gray-400"></i>
+                </div>
+                <div class="p-4 flex items-center">
+                    <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center mr-3">
+                        <i class="fas fa-language text-green-600"></i>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="font-medium">Language</h3>
+                        <p class="text-xs text-gray-500">English</p>
+                    </div>
+                    <i class="fas fa-chevron-right text-gray-400"></i>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-lg overflow-hidden mb-6">
+                <div class="p-4 border-b flex items-center">
+                    <div class="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center mr-3">
+                        <i class="fas fa-question-circle text-red-600"></i>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="font-medium">Help & Support</h3>
+                    </div>
+                    <i class="fas fa-chevron-right text-gray-400"></i>
+                </div>
+                <div class="p-4 flex items-center">
+                    <div class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center mr-3">
+                        <i class="fas fa-info-circle text-gray-600"></i>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="font-medium">About MindSculpt</h3>
+                    </div>
+                    <i class="fas fa-chevron-right text-gray-400"></i>
+                </div>
+            </div>
+            
+            <button class="w-full bg-gray-100 text-gray-800 py-3 rounded-lg font-medium">Sign Out</button>
+        </div>
+        
+        <!-- 催眠引导页面 -->
+        <div id="guide-page" class="page p-0 hidden">
+            <div class="h-full bg-indigo-900 text-white flex flex-col">
+                <div class="p-4 flex justify-between items-center">
+                    <button class="text-white" id="back-button">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <div class="text-sm">Confidence Boost</div>
+                    <div class="w-6"></div>
+                </div>
+                
+                <div class="flex-1 flex flex-col items-center justify-center px-6">
+                    <div class="w-40 h-40 bg-indigo-800 rounded-full flex items-center justify-center mb-8">
+                        <i class="fas fa-play text-4xl text-white"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold mb-2">Quick Confidence Boost</h2>
+                    <p class="text-indigo-200 mb-8">5-minute session</p>
+                    
+                    <div class="w-full mb-8">
+                        <div class="flex justify-between text-sm text-indigo-300 mb-1">
+                            <span>0:00</span>
+                            <span>5:00</span>
+                        </div>
+                        <div class="w-full bg-indigo-800 rounded-full h-2">
+                            <div class="bg-white h-2 rounded-full" style="width: 30%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex space-x-4">
+                        <button class="w-12 h-12 bg-indigo-800 rounded-full flex items-center justify-center">
+                            <i class="fas fa-backward"></i>
+                        </button>
+                        <button class="w-16 h-16 bg-white text-indigo-900 rounded-full flex items-center justify-center">
+                            <i class="fas fa-pause text-2xl"></i>
+                        </button>
+                        <button class="w-12 h-12 bg-indigo-800 rounded-full flex items-center justify-center">
+                            <i class="fas fa-forward"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="p-6">
+                    <div class="bg-indigo-800 bg-opacity-50 rounded-lg p-4">
+                        <h3 class="font-medium mb-2">Session Details</h3>
+                        <p class="text-sm text-indigo-200">This session uses progressive relaxation and positive affirmations to help you feel more confident in social situations.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 底部导航栏 -->
+        <div class="tab-bar">
+            <div class="tab active" data-page="home-page">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </div>
+            <div class="tab" data-page="library-page">
+                <i class="fas fa-book-open"></i>
+                <span>Library</span>
+            </div>
+            <div class="tab" data-page="create-page">
+                <i class="fas fa-plus-circle"></i>
+                <span>Create</span>
+            </div>
+            <div class="tab" data-page="progress-page">
+                <i class="fas fa-chart-line"></i>
+                <span>Progress</span>
+            </div>
+            <div class="tab" data-page="settings-page">
+                <i class="fas fa-cog"></i>
+                <span>Settings</span>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // 切换标签页
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                // 移除所有active类
+                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+                
+                // 添加active类到当前标签
+                tab.classList.add('active');
+                
+                // 显示对应的页面
+                const pageId = tab.getAttribute('data-page');
+                document.getElementById(pageId).classList.add('active');
+            });
+        });
+        
+        // 模拟开始催眠会话
+        document.querySelectorAll('[data-hypno-session]').forEach(button => {
+            button.addEventListener('click', () => {
+                // 隐藏所有页面
+                document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+                
+                // 显示引导页面
+                document.getElementById('guide-page').classList.add('active');
+                document.getElementById('guide-page').classList.remove('hidden');
+            });
+        });
+        
+        // 返回按钮
+        document.getElementById('back-button').addEventListener('click', () => {
+            // 隐藏引导页面
+            document.getElementById('guide-page').classList.remove('active');
+            document.getElementById('guide-page').classList.add('hidden');
+            
+            // 显示首页
+            document.getElementById('home-page').classList.add('active');
+            
+            // 激活首页标签
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            document.querySelector('.tab[data-page="home-page"]').classList.add('active');
+        });
+    </script>
+</body>
+</html>
